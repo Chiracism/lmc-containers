@@ -15,6 +15,7 @@ use App\Http\Controllers\OwnersController;
 use App\Http\Controllers\PaysController;
 use App\Http\Controllers\PortController;
 use App\Http\Controllers\RatesController;
+use App\Http\Controllers\ReparationsController;
 use App\Http\Controllers\SiteController;
 use App\Http\Controllers\SizesController;
 use App\Http\Controllers\SousSiteController;
@@ -59,7 +60,7 @@ Route::resource('navires',NaviresController::class);
 Route::resource('sous_sites',SousSiteController::class);
 Route::resource('masterfiles',MasterFilesController::class);
 Route::resource('mouvements',MouvementsController::class);
-
+Route::resource('reparations',ReparationsController::class);
 Route::resource('types',TypesController::class);
 Route::resource('contcategories',ContCategoriesController::class);
 // Route::resource('layouts',UserController::class);

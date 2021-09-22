@@ -47,7 +47,8 @@
         </div> 
     </div> 
 </div>   --}}
-
+<div class="card">
+  <div class="card-header">
     <section class="content">
       <div class="container-fluid">
         <!-- Small boxes (Stat box) -->
@@ -118,8 +119,8 @@
       </div><!-- /.container-fluid -->
     </section>
     <!-- /.content -->
-  
-</div>
+
+  </div>
 </div>
 {{-- <div class="container">
     <div class="row justify-content-center">
