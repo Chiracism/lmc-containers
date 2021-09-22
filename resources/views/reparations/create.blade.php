@@ -50,7 +50,7 @@
                                         </div>
                                     </div>
                                 </div>
-                            <div class="row">
+                            {{-- <div class="row">
                                 <div class="col">
                                     <div class="form-group row">
                                         <label for="numero_conteneur" class="col-md-4 col-form-label text-md-right">{{ __('N° Immatriculation') }}</label>
@@ -63,8 +63,8 @@
                                             @enderror
                                         </div>
                                     </div>
-                                </div>
-                                <div class="col">
+                                </div> --}}
+                                {{-- <div class="col">
                                     <div class="form-group row">
                                         <label for="pays_id" class="col-md-4 col-form-label text-md-right">{{ __('Pays') }}</label>
                                         <div class="col-md-8">
@@ -81,7 +81,7 @@
                                             @enderror
                                         </div>
                                     </div>
-                                </div>
+                                </div> --}}
                             </div>
                             <div class="row">
                                 <div class="col">
@@ -122,24 +122,24 @@
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="col">
+                                {{-- <div class="col">
                                     <div class="form-group row">
-                                        <label for="materiel_id" class="col-md-4 col-form-label text-md-right">{{ __('Matériel') }}</label>
+                                        <label for="owner_id" class="col-md-4 col-form-label text-md-right">{{ __('Code Propriétaire') }}</label>
                                         <div class="col-md-8">
-                                          <select id ="materiel_id" name="materiel_id" class="form-control" aria-label="Default select example">
-                                            <option selected disabled>Choisir le Matériel</option>
-                                            @foreach ($materiel as $materiel)
-                                            <option value="{{ $materiel->materiel_name }}">{{ $materiel->materiel_name }}</option>
+                                          <select id ="owner_id" name="owner_id" class="form-control" aria-label="Default select example">
+                                            <option selected disabled>Choisir le Code Proprieté</option>
+                                            @foreach ($owner as $owner)
+                                            <option value="{{ $owner->owner_id }}">{{ $owner->owner_id }}</option>
                                             @endforeach
                                           </select>
-                                            @error('materiel_id')
+                                            @error('owner_id')
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>
                                                 </span>
                                             @enderror
                                         </div>
                                     </div>
-                                </div>
+                                </div> --}}
                                 <div class="col">
                                     <div class="form-group row">
                                         <label for="proprietaire_id" class="col-md-4 col-form-label text-md-right">{{ __('Proprietaire') }}</label>
@@ -147,7 +147,7 @@
                                           <select id ="proprietaire_id" name="proprietaire_id" class="form-control" aria-label="Default select example">
                                             <option selected disabled>Choisir le Propriétaire</option>
                                             @foreach ($owner as $owner)
-                                            <option value="{{ $owner->owner_name }}">{{ $owner->owner_name }}</option>
+                                            <option value="{{ $owner->owner_id }}">{{ $owner->owner_name }}</option>
                                             @endforeach
                                           </select>
                                             @error('proprietaire_id')
@@ -162,15 +162,15 @@
                             <div class="row">
                                 <div class="col">
                                     <div class="form-group row">
-                                        <label for="etat_conteneur_id" class="col-md-4 col-form-label text-md-right">{{ __('Etat Conteneur') }}</label>
+                                        <label for="pays_name" class="col-md-4 col-form-label text-md-right">{{ __(' Pays ') }}</label>
                                         <div class="col-md-8">
-                                          <select id ="etat_conteneur_id" name="etat_conteneur_id" class="form-control" aria-label="Default select example">
+                                          <select id ="pays_name" name="pays_name" class="form-control" aria-label="Default select example">
                                             <option selected disabled> Choisir l'Etat </option>
-                                            @foreach ($etatdeConteneur as $etatdeConteneur)
-                                            <option value="{{ $etatdeConteneur->etat_conteneur_id }}">{{ $etatdeConteneur->etat_conteneur_name }}</option>
+                                            @foreach ($country as $country)
+                                            <option value="{{ $country->country_id }}">{{ $country->country_name }}</option>
                                             @endforeach
                                           </select>
-                                            @error('etat_conteneur_id')
+                                            @error('pays_name')
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>
                                                 </span>

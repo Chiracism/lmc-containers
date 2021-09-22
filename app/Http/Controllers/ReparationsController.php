@@ -2,7 +2,17 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Clients;
+use App\Models\Countries;
+use App\Models\Devise;
+use App\Models\EtatdeConteneur;
+use App\Models\Materiels;
+use App\Models\Owners;
 use App\Models\Reparations;
+use App\Models\Site;
+use App\Models\Sizes;
+use App\Models\Sous_sites;
+use App\Models\types;
 use Illuminate\Http\Request;
 
 class ReparationsController extends Controller
@@ -29,7 +39,19 @@ class ReparationsController extends Controller
      */
     public function create()
     {
-        return view('reparations.create');
+        $sous_site = Sous_sites::all();
+        $site= Site::all();
+        $devise = Devise::all();
+        $materiel = Materiels::all();
+        $owner = Owners::all();
+        $client = Clients::all();
+        $etatdeConteneur = EtatdeConteneur::all();
+        $type = types::all();
+        $site = Site::all(); 
+        $country = Countries::all();
+        $size = Sizes::all();
+        // return view('sous_sites.create',compact('site'));
+        return view('reparations.create',compact('country','client','owner','materiel','devise','site','sous_site','type','size','etatdeConteneur'));
     }
 
     /**
@@ -40,7 +62,7 @@ class ReparationsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return redirect()->route('masterfiles.index')->with('message','Data Added Successfully');
     }
 
     /**
