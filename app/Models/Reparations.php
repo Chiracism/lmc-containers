@@ -17,7 +17,7 @@ class Reparations extends Model
         // 'proprietaire_name',
         // 'pays_id',
         'pays_name',
-        'taux_id',
+        // 'taux_id',
         'taux_name',
         'heure',
         'materiel_id',
@@ -26,7 +26,7 @@ class Reparations extends Model
         'societe_reparation',
         'societe_location',
         'site_id',
-        'site_name',
+        // 'site_name',
         'date_derniere_inspection',
         'societe',
     ];

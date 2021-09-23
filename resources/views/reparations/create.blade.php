@@ -19,24 +19,26 @@
                         <form method="POST" action="{{ route('reparations.store') }}">
                             @csrf
                                 
-                                <div class="row">
-                                    <div class="form-group row">
-                                        <label for="numero_conteneur" class="col-md-4 col-form-label text-md-right">{{ __('N° Immatriculation:') }}</label>
-                                        <div class="col-md-8">
-                                          <select id ="numero_conteneur" name="numero_conteneur" class="form-control" aria-label="Default select example">
-                                            <option selected disabled> Choisir le Pays </option>
-                                            @foreach ($masterfile as $masterfile)
-                                            <option value="{{ $masterfile->numero_conteneur }}">{{ $masterfile->numero_conteneur }}</option>
-                                            @endforeach
-                                          </select>
-                                            @error('numero_conteneur')
-                                                <span class="invalid-feedback" role="alert">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                            @enderror
+                                    <div class="row">
+                                        <div class="col">
+                                            <div class="form-group row">
+                                                <label for="numero_conteneur" class="col-md-4 col-form-label text-md-right">{{ __('N° Immatriculation :') }}</label>
+                                                <div class="col-md-8">
+                                                <select id ="numero_conteneur" name="numero_conteneur" class="form-control" aria-label="Default select example">
+                                                    <option selected disabled> Choisir le numéro du Conteneur </option>
+                                                    @foreach ($masterfile as $masterfile)
+                                                    <option value="{{ $masterfile->numero_conteneur }}">{{ $masterfile->numero_conteneur }}</option>
+                                                    @endforeach
+                                                </select>
+                                                    @error('numero_conteneur')
+                                                        <span class="invalid-feedback" role="alert">
+                                                            <strong>{{ $message }}</strong>
+                                                        </span>
+                                                    @enderror
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
                                 <div class="row">
                                     <div class="form-group row">
                                         <label for="date_derniere_reparation" class="col-md-4 col-form-label text-md-right">{{ __('Date Dernière Réparation.') }}</label>
@@ -180,6 +182,24 @@
                                 </div>
                                 <div class="col">
                                     <div class="form-group row">
+                                        <label for="taille_conteneur_id" class="col-md-4 col-form-label text-md-right">{{ __('Taille Conteneur') }}</label>
+                                        <div class="col-md-8">
+                                          <select id ="taille_conteneur_id" name="taille_conteneur_id" class="form-control" aria-label="Default select example">
+                                            <option selected disabled>Choisir la taille </option>
+                                            @foreach ($size as $size)
+                                            <option value="{{ $size->size_name }}">{{ $size->size_name }}</option>
+                                            @endforeach
+                                          </select>
+                                            @error('taille_conteneur_id')
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                            @enderror
+                                        </div>
+                                    </div>
+                                </div>
+                                {{-- <div class="col">
+                                    <div class="form-group row">
                                         <label for="constructeur" class="col-md-4 col-form-label text-md-right">{{ __('Constructeur') }}</label>
                                         <div class="col-md-8">
                                             <input id="constructeur" type="text" class="form-control @error('constructeur') is-invalid @enderror" name="constructeur" value="{{ old('constructeur') }}">
@@ -190,15 +210,15 @@
                                             @enderror
                                         </div>
                                     </div>
-                                </div>
+                                </div> --}}
                             </div>
                             <div class="row">
                                 <div class="col">
                                     <div class="form-group row">
-                                        <label for="date_fabrication" class="col-md-4 col-form-label text-md-right">{{ __('Date Fab.') }}</label>
+                                        <label for="taux_name" class="col-md-4 col-form-label text-md-right">{{ __(' Taux ') }}</label>
                                         <div class="col-md-6">
-                                            <input id="date_fabrication" type="date" class="form-control @error('date_fabrication') is-invalid @enderror" name="date_fabrication" value="{{ old('date_fabrication') }}">
-                                            @error('date_fabrication')
+                                            <input id="taux_name" type="date" class="form-control @error('taux_name') is-invalid @enderror" name="taux_name" value="{{ old('taux_name') }}">
+                                            @error('taux_name')
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>
                                                 </span>
@@ -208,11 +228,11 @@
                                 </div>
                                 <div class="col">
                                     <div class="form-group row">
-                                        <label for="date_entrer_service" class="col-md-4 col-form-label text-md-right">{{ __('Date Mise en Service') }}</label>
+                                        <label for="heure" class="col-md-4 col-form-label text-md-right">{{ __(' Heure ') }}</label>
                                         <div class="col-md-6">
-                                            <input id="date_entrer_service" type="date" class="form-control @error('date_entrer_service') is-invalid @enderror" name="date_entrer_service" value="{{ old('date_entrer_service') }}">
+                                            <input id="heure" type="date" class="form-control @error('heure') is-invalid @enderror" name="heure" value="{{ old('heure') }}">
             
-                                            @error('date_entrer_service')
+                                            @error('heure')
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>
                                                 </span>
@@ -220,9 +240,9 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col">
+                                {{-- <div class="col">
                                     <div class="form-group row">
-                                        <label for="date_derniere_inspection" class="col-md-4 col-form-label text-md-right">{{ __('Date Inspection') }}</label>
+                                        <label for="materiel_id" class="col-md-4 col-form-label text-md-right">{{ __('Date Inspection') }}</label>
                                         <div class="col-md-6">
                                             <input id="date_derniere_inspection" type="date" class="form-control @error('date_derniere_inspection') is-invalid @enderror" name="date_derniere_inspection" value="{{ old('date_derniere_inspection') }}">
             
@@ -233,15 +253,19 @@
                                             @enderror
                                         </div>
                                     </div>
-                                </div>
+                                </div> --}}
                             </div>
                             <div class="row">
                                 <div class="col">
                                     <div class="form-group row">
-                                        <label for="valeur_assuree" class="col-md-4 col-form-label text-md-right">{{ __('Valeur Assurée') }}</label>
+                                        <label for="materiel_id" class="col-md-4 col-form-label text-md-right">{{ __('Code Matériel') }}</label>
                                         <div class="col-md-8">
-                                            <input id="valeur_assuree" type="text" class="form-control @error('valeur_assuree') is-invalid @enderror" name="valeur_assuree" value="{{ old('valeur_assuree') }}">
-                                            @error('valeur_assuree')
+                                            <option selected disabled> Choisir le Code Matériel </option>
+                                            @foreach ($materiel as $materiel)
+                                            <option value="{{ $materiel->materiel_id }}">{{ $materiel->materiel_name }}</option>
+                                            @endforeach
+                                          </select>
+                                            @error('materiel_id')
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>
                                                 </span>
@@ -249,7 +273,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col">
+                                {{-- <div class="col">
                                     <div class="form-group row">
                                         <label for="devise_id" class="col-md-4 col-form-label text-md-right">{{ __('Devise') }}</label>
                                         <div class="col-md-8">
@@ -266,16 +290,30 @@
                                             @enderror
                                         </div>
                                     </div>
+                                </div> --}}
+                                <div class="col">
+                                    <div class="form-group row">
+                                        <label for="total" class="col-md-4 col-form-label text-md-right">{{ __(' Total ') }}</label>
+                                        <div class="col-md-8">
+                                            <input id="total" type="text" class="form-control @error('total') is-invalid @enderror" name="total" value="{{ old('total') }}">
+            
+                                            @error('total')
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                            @enderror
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col">
                                     <div class="form-group row">
-                                        <label for="societe_inspection" class="col-md-4 col-form-label text-md-right">{{ __('Société Inspection') }}</label>
+                                        <label for="numero_recu" class="col-md-4 col-form-label text-md-right">{{ __(' N° Réçu ') }}</label>
                                         <div class="col-md-8">
-                                            <input id="societe_inspection" type="textarea" class="form-control @error('societe_inspection') is-invalid @enderror" name="societe_inspection" value="{{ old('societe_inspection') }}">
+                                            <input id="numero_recu" type="textarea" class="form-control @error('numero_recu') is-invalid @enderror" name="numero_recu" value="{{ old('numero_recu') }}">
             
-                                            @error('societe_inspection')
+                                            @error('numero_recu')
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>
                                                 </span>
@@ -285,11 +323,25 @@
                                 </div>
                                 <div class="col">
                                     <div class="form-group row">
-                                        <label for="dernier_constat" class="col-md-4 col-form-label text-md-right">{{ __('Dernier Constat') }}</label>
+                                        <label for="societe_reparation" class="col-md-4 col-form-label text-md-right">{{ __('Société de Réparation') }}</label>
                                         <div class="col-md-8">
-                                            <input id="dernier_constat" type="text" class="form-control @error('dernier_constat') is-invalid @enderror" name="dernier_constat" value="{{ old('dernier_constat') }}">
+                                            <input id="societe_reparation" type="text" class="form-control @error('societe_reparation') is-invalid @enderror" name="societe_reparation" value="{{ old('societe_reparation') }}">
             
-                                            @error('dernier_constat')
+                                            @error('societe_reparation')
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                            @enderror
+                                        </div>
+                                    </div>
+                                </div>
+                                 <div class="col">
+                                    <div class="form-group row">
+                                        <label for="societe_location" class="col-md-4 col-form-label text-md-right">{{ __('Location') }}</label>
+                                        <div class="col-md-8">
+                                            <input id="societe_location" type="textarea" class="form-control @error('societe_location') is-invalid @enderror" name="societe_location" value="{{ old('societe_location') }}">
+            
+                                            @error('societe_location')
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>
                                                 </span>
@@ -306,7 +358,7 @@
                                           <select id ="site_id" name="site_id" class="form-control" aria-label="Default select example">
                                             <option selected disabled>Choisir le Site</option>
                                             @foreach ($site as $site)
-                                            <option value="{{ $site->site_name }}">{{ $site->site_name }}</option>
+                                            <option value="{{ $site->site_id }}">{{ $site->site_name }}</option>
                                             @endforeach
                                           </select>
                                             @error('site_id')
@@ -319,15 +371,11 @@
                                 </div>
                                 <div class="col">
                                     <div class="form-group row">
-                                        <label for="sous_site_id" class="col-md-4 col-form-label text-md-right">{{ __('Sous-site') }}</label>
+                                        <label for="date_derniere_inspection" class="col-md-4 col-form-label text-md-right">{{ __('Date Derniere Inspection') }}</label>
                                         <div class="col-md-8">
-                                          <select id ="sous_site_id" name="sous_site_id" class="form-control" aria-label="Default select example">
-                                            <option selected disabled>Choisir le Sous-site</option>
-                                            @foreach ($sous_site as $sous_site)
-                                            <option value="{{ $sous_site->sous_site_name }}">{{ $sous_site->sous_site_name }}</option>
-                                            @endforeach
-                                          </select>
-                                            @error('sous_site_id')
+                                            <input id="date_derniere_inspection" type="date" class="form-control @error('date_derniere_inspection') is-invalid @enderror" name="date_derniere_inspection" value="{{ old('date_derniere_inspection') }}">
+            
+                                            @error('date_derniere_inspection')
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>
                                                 </span>
@@ -337,11 +385,11 @@
                                 </div>
                                 <div class="col">
                                     <div class="form-group row">
-                                        <label for="date_mouvement" class="col-md-4 col-form-label text-md-right">{{ __('Date Mvt') }}</label>
+                                        <label for="societe" class="col-md-4 col-form-label text-md-right">{{ __(' Société ') }}</label>
                                         <div class="col-md-8">
-                                            <input id="date_mouvement" type="date" class="form-control @error('date_mouvement') is-invalid @enderror" name="date_mouvement" value="{{ old('date_mouvement') }}">
+                                            <input id="societe" type="text" class="form-control @error('societe') is-invalid @enderror" name="societe" value="{{ old('societe') }}">
             
-                                            @error('date_mouvement')
+                                            @error('societe')
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>
                                                 </span>
@@ -350,84 +398,8 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="row">
-                                <div class="col">
-                                    <div class="form-group row">
-                                        <label for="observation" class="col-md-4 col-form-label text-md-right">{{ __('Observation') }}</label>
-                                        <div class="col-md-8">
-                                            <input id="observation" type="observation" class="form-control @error('observation') is-invalid @enderror" name="observation" value="{{ old('observation') }}">
-            
-                                            @error('observation')
-                                                <span class="invalid-feedback" role="alert">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                            @enderror
-                                        </div>
-                                    </div>
-                                </div>
+                            
                             </div>
-                                <div class="row">
-                                    <div class="col">
-                                        <div class="form-group row">
-                                            <label for="client" class="col-md-4 col-form-label text-md-right">{{ __('Client') }}</label>
-                                            <div class="col-md-8">
-                                            <select id ="client" name="client" class="form-control" aria-label="Default select example">
-                                                <option selected disabled>Choisir le Client</option>
-                                                @foreach ($client as $client)
-                                                <option value="{{ $client->client_name }}">{{ $client->client_name }}</option>
-                                                @endforeach
-                                            </select>
-                                                @error('client')
-                                                    <span class="invalid-feedback" role="alert">
-                                                        <strong>{{ $message }}</strong>
-                                                    </span>
-                                                @enderror
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col">
-                                        <div class="form-group row">
-                                            <label for="date_operation" class="col-md-4 col-form-label text-md-right">{{ __('Date') }}</label>
-                                            <div class="col-md-8">
-                                                <input id="date_operation" type="date" class="form-control @error('date_operation') is-invalid @enderror" name="date_operation" value="{{ old('date_operation') }}">
-                
-                                                @error('date_operation')
-                                                    <span class="invalid-feedback" role="alert">
-                                                        <strong>{{ $message }}</strong>
-                                                    </span>
-                                                @enderror
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col">
-                                        <div class="form-group row">
-                                            <label for="montant" class="col-md-4 col-form-label text-md-right">{{ __('Montant') }}</label>
-                                            <div class="col-md-8">
-                                                <input id="montant" type="text" class="form-control @error('montant') is-invalid @enderror" name="montant" value="{{ old('montant') }}">
-                
-                                                @error('montant')
-                                                    <span class="invalid-feedback" role="alert">
-                                                        <strong>{{ $message }}</strong>
-                                                    </span>
-                                                @enderror
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col">
-                                        <div class="form-group row">
-                                            <label for="numero_recu" class="col-md-4 col-form-label text-md-right">{{ __('N° réçu') }}</label>
-                                            <div class="col-md-8">
-                                                <input id="numero_recu" type="text" class="form-control @error('numero_recu') is-invalid @enderror" name="numero_recu" value="{{ old('numero_recu') }}">
-                
-                                                @error('numero_recu')
-                                                    <span class="invalid-feedback" role="alert">
-                                                        <strong>{{ $message }}</strong>
-                                                    </span>
-                                                @enderror
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
                             <div class="form-group row mb-0">
                                 <div class="col-md-6 offset-md-4">
                                     <button type="submit" class="btn btn-primary float-right">

@@ -6,6 +6,7 @@ use App\Models\Clients;
 use App\Models\Countries;
 use App\Models\Devise;
 use App\Models\EtatdeConteneur;
+use App\Models\MasterFiles;
 use App\Models\Materiels;
 use App\Models\Owners;
 use App\Models\Reparations;
@@ -43,6 +44,7 @@ class ReparationsController extends Controller
         $site= Site::all();
         $devise = Devise::all();
         $materiel = Materiels::all();
+        $masterfile = MasterFiles::all();
         $owner = Owners::all();
         $client = Clients::all();
         $etatdeConteneur = EtatdeConteneur::all();
@@ -51,7 +53,7 @@ class ReparationsController extends Controller
         $country = Countries::all();
         $size = Sizes::all();
         // return view('sous_sites.create',compact('site'));
-        return view('reparations.create',compact('country','client','owner','materiel','devise','site','sous_site','type','size','etatdeConteneur'));
+        return view('reparations.create',compact('country','client','owner','materiel','masterfile','devise','site','sous_site','type','size','etatdeConteneur'));
     }
 
     /**
