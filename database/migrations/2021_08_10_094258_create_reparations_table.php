@@ -29,7 +29,7 @@ class CreateReparationsTable extends Migration
             $table->string('societe_reparation');
             $table->string('societe_location');
             $table->string('site_id');
-            $table->string('date_derniere_inspection');
+            $table->date('date_derniere_inspection');
             $table->string('societe');
             $table->timestamps();
         });

@@ -12,7 +12,9 @@
         <div class="row justify-content-center">
             <div class="col-md-12">
                 <div class="card">
+                    <h1>
                     <div class="card-header">{{ __('Reparation') }}
+                        </h1>
                         <a href="{{route('reparations.index')}}" class="btn btn-success float-right">Back</a>
                     </div>
                     <div class="card-body">
@@ -38,19 +40,21 @@
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                <div class="row">
-                                    <div class="form-group row">
-                                        <label for="date_derniere_reparation" class="col-md-4 col-form-label text-md-right">{{ __('Date Dernière Réparation.') }}</label>
-                                        <div class="col-md-6">
-                                            <input id="date_derniere_reparation" type="date" class="form-control @error('date_derniere_reparation') is-invalid @enderror" name="date_derniere_reparation" value="{{ old('date_derniere_reparation') }}">
-                                            @error('date_derniere_reparation')
-                                                <span class="invalid-feedback" role="alert">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                            @enderror
+                                
+                                         {{-- <div class="row"> --}}
+                                        <div class="col">
+                                            <div class="form-group row">
+                                                <label for="date_derniere_reparation" class="col-md-4 col-form-label text-md-right">{{ __('Date Dernière Réparation.') }}</label>
+                                                <div class="col-md-8">
+                                                    <input id="date_derniere_reparation" type="date" class="form-control @error('date_derniere_reparation') is-invalid @enderror" name="date_derniere_reparation" value="{{ old('date_derniere_reparation') }}">
+                                                    @error('date_derniere_reparation')
+                                                        <span class="invalid-feedback" role="alert">
+                                                            <strong>{{ $message }}</strong>
+                                                        </span>
+                                                    @enderror
+                                                </div>
+                                            </div>
                                         </div>
-                                    </div>
                                 </div>
                             {{-- <div class="row">
                                 <div class="col">
@@ -107,7 +111,7 @@
                                 <div class="col">
                                     <div class="form-group row">
                                         <label for="taille_conteneur_id" class="col-md-4 col-form-label text-md-right">{{ __('Taille Conteneur') }}</label>
-                                        <div class="col-md-8">
+                                        <div class="col-md-7">
                                           <select id ="taille_conteneur_id" name="taille_conteneur_id" class="form-control" aria-label="Default select example">
                                             <option selected disabled>Choisir la taille </option>
                                             @foreach ($size as $size)
@@ -160,12 +164,12 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="row">
+                            {{-- </div> --}}
+                            {{-- <div class="row"> --}}
                                 <div class="col">
                                     <div class="form-group row">
                                         <label for="pays_name" class="col-md-4 col-form-label text-md-right">{{ __(' Pays ') }}</label>
-                                        <div class="col-md-8">
+                                        <div class="col-md-7">
                                           <select id ="pays_name" name="pays_name" class="form-control" aria-label="Default select example">
                                             <option selected disabled> Choisir l'Etat </option>
                                             @foreach ($country as $country)
@@ -180,7 +184,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col">
+                                {{-- <div class="col">
                                     <div class="form-group row">
                                         <label for="taille_conteneur_id" class="col-md-4 col-form-label text-md-right">{{ __('Taille Conteneur') }}</label>
                                         <div class="col-md-8">
@@ -197,7 +201,7 @@
                                             @enderror
                                         </div>
                                     </div>
-                                </div>
+                                </div> --}}
                                 {{-- <div class="col">
                                     <div class="form-group row">
                                         <label for="constructeur" class="col-md-4 col-form-label text-md-right">{{ __('Constructeur') }}</label>
@@ -216,8 +220,13 @@
                                 <div class="col">
                                     <div class="form-group row">
                                         <label for="taux_name" class="col-md-4 col-form-label text-md-right">{{ __(' Taux ') }}</label>
-                                        <div class="col-md-6">
-                                            <input id="taux_name" type="date" class="form-control @error('taux_name') is-invalid @enderror" name="taux_name" value="{{ old('taux_name') }}">
+                                        <div class="col-md-8">
+                                        <select id ="taux_name" name="taux_name" class="form-control" aria-label="Default select example">
+                                            <option selected disabled> Choisir le Taux </option>
+                                            @foreach ($rate as $rate)
+                                            <option value="{{ $rate->taux_id }}">{{ $rate->taux_name }}</option>
+                                            @endforeach
+                                        </select>
                                             @error('taux_name')
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>
@@ -229,8 +238,8 @@
                                 <div class="col">
                                     <div class="form-group row">
                                         <label for="heure" class="col-md-4 col-form-label text-md-right">{{ __(' Heure ') }}</label>
-                                        <div class="col-md-6">
-                                            <input id="heure" type="date" class="form-control @error('heure') is-invalid @enderror" name="heure" value="{{ old('heure') }}">
+                                        <div class="col-md-7">
+                                            <input id="heure" type="text" class="form-control @error('heure') is-invalid @enderror" name="heure" value="{{ old('heure') }}">
             
                                             @error('heure')
                                                 <span class="invalid-feedback" role="alert">
@@ -260,11 +269,12 @@
                                     <div class="form-group row">
                                         <label for="materiel_id" class="col-md-4 col-form-label text-md-right">{{ __('Code Matériel') }}</label>
                                         <div class="col-md-8">
+                                        <select id ="materiel_id" name="materiel_id" class="form-control" aria-label="Default select example">
                                             <option selected disabled> Choisir le Code Matériel </option>
                                             @foreach ($materiel as $materiel)
                                             <option value="{{ $materiel->materiel_id }}">{{ $materiel->materiel_name }}</option>
                                             @endforeach
-                                          </select>
+                                        </select>
                                             @error('materiel_id')
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>
@@ -294,7 +304,7 @@
                                 <div class="col">
                                     <div class="form-group row">
                                         <label for="total" class="col-md-4 col-form-label text-md-right">{{ __(' Total ') }}</label>
-                                        <div class="col-md-8">
+                                        <div class="col-md-7">
                                             <input id="total" type="text" class="form-control @error('total') is-invalid @enderror" name="total" value="{{ old('total') }}">
             
                                             @error('total')
@@ -398,13 +408,13 @@
                                     </div>
                                 </div>
                             </div>
-                            
-                            </div>
-                            <div class="form-group row mb-0">
-                                <div class="col-md-6 offset-md-4">
-                                    <button type="submit" class="btn btn-primary float-right">
-                                        {{ __('Register') }}
-                                    </button>
+
+                                <div class="form-group row mb-0">
+                                    <div class="col-md-6 offset-md-4">
+                                        <button type="submit" class="btn btn-primary float-right">
+                                            {{ __('Register') }}
+                                        </button>
+                                    </div>
                                 </div>
                             </div>
                         </form>
