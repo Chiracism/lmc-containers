@@ -69,7 +69,7 @@ class ReparationsController extends Controller
      */
     public function store(Request $request)
     {
-         $request->validate([
+         $request-> validate([
             'numero_conteneur' => ['required', 'string', 'max:191'],
             'date_derniere_reparation' => ['required','date'],
             'type_conteneur_id' => ['required', 'string', 'max:191'],
