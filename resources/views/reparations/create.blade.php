@@ -12,9 +12,7 @@
         <div class="row justify-content-center">
             <div class="col-md-12">
                 <div class="card">
-                    <h1>
                     <div class="card-header">{{ __('Reparation') }}
-                        </h1>
                         <a href="{{route('reparations.index')}}" class="btn btn-success float-right">Back</a>
                     </div>
                     <div class="card-body">
