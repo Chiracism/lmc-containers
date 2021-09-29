@@ -224,7 +224,7 @@
                                         <select id ="taux_name" name="taux_name" class="form-control" aria-label="Default select example">
                                             <option selected disabled> Choisir le Taux </option>
                                             @foreach ($rate as $rate)
-                                            <option value="{{ $rate->taux_id }}">{{ $rate->taux_name }}</option>
+                                            <option value="{{ $rate->taux_name }}">{{ $rate->taux_name }}</option>
                                             @endforeach
                                         </select>
                                             @error('taux_name')

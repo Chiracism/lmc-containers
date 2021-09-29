@@ -14,10 +14,7 @@ class Reparations extends Model
         'type_conteneur_id',
         'taille_conteneur_id',
         'proprietaire_id',
-        // 'proprietaire_name',
-        // 'pays_id',
         'pays_name',
-        // 'taux_id',
         'taux_name',
         'heure',
         'materiel_id',
@@ -26,7 +23,6 @@ class Reparations extends Model
         'societe_reparation',
         'societe_location',
         'site_id',
-        // 'site_name',
         'date_derniere_inspection',
         'societe',
     ];

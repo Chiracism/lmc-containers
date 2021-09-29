@@ -47,8 +47,7 @@ class MouvementsController extends Controller
         $site = Site::all();
         $sous_site = Sous_sites::all();
         $masterfile = MasterFiles::all();
-        $mouvement = Mouvements::all();
-        return view('mouvements.create', compact('mouvement','masterfile','site','sous_site','navire','port','client','etatdeConteneur','type','size'));
+        return view('mouvements.create', compact('masterfile','site','sous_site','navire','port','client','etatdeConteneur','type','size'));
     }
 
     /**

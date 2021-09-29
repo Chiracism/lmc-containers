@@ -70,23 +70,23 @@
                         </tr>
                         </thead>
                         <tbody>
-                            {{-- @foreach ($masterfile as $masterfile)
+                            @foreach ($reparations as $reparation)
                             <tr>
-                                <th scope="row">{{ $masterfile->id }}</th>
-                                <td>{{ $masterfile->numero_conteneur }}</td>
-                                <td>{{ $masterfile->pays_id }}</td>
-                                <td>{{ $masterfile->type_conteneur_id }}</td>
-                                <td>{{ $masterfile->taille_conteneur_id }}</td>
-                                <td>{{ $masterfile->proprietaire_id }}</td>
-                                <td>{{ $masterfile->etat_conteneur_id }}</td>
-                                <td>{{ $masterfile->date_mouvement }}</td>
-                                <td>{{ $masterfile->client }}</td>
-                                <td>{{ $masterfile->date_operation }}</td>
-                                <td>{{ $masterfile->montant }}</td>
-                                <td>{{ $masterfile->numero_recu }}</td>
-                                <td><a href="{{ route('reparations.edit', $masterfile->id)}}" class="btn btn-success">Edit</a></td>
+                                <th scope="row">{{ $reparation->id }}</th>
+                                <td>{{ $reparation->numero_conteneur }}</td>
+                                <td>{{ $reparation->type_conteneur_id }}</td>
+                                <td>{{ $reparation->taille_conteneur_id }}</td>
+                                <td>{{ $reparation->proprietaire_id }}</td>
+                                <td>{{ $reparation->pays_name }}</td>
+                                <td>{{ $reparation->numero_recu }}</td>
+                                <td>{{ $reparation->total }}</td>
+                                <td>{{ $reparation->societe_reparation }}</td>
+                                {{-- <td>{{ $reparation->date_operation }}</td>
+                                <td>{{ $reparation->montant }}</td>
+                                <td>{{ $reparation->numero_recu }}</td> --}}
+                                <td><a href="{{ route('reparations.edit', $reparation->id)}}" class="btn btn-success">Edit</a></td>
                             </tr>    
-                            @endforeach --}}
+                            @endforeach
                         </tbody>
                     </table>
                 </div>
