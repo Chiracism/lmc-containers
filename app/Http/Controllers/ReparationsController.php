@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ReparationStoreRequest;
 use App\Models\Clients;
 use App\Models\Countries;
 use App\Models\Devise;
@@ -155,7 +156,7 @@ class ReparationsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Reparations $reparation)
+    public function update(ReparationStoreRequest $request, Reparations $reparation)
     {
         $reparation->update([
             'numero_conteneur' => $request->numero_conteneur, 
