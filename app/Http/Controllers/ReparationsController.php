@@ -127,7 +127,7 @@ class ReparationsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Reparations $reparation)
     {
         $sous_site = Sous_sites::all();
         $site= Site::all();
@@ -143,9 +143,9 @@ class ReparationsController extends Controller
         $country = Countries::all();
         $tauxes = Tauxes::all();
         $size = Sizes::all();
-        // $reparation = Reparations::all();
+        $reparation = Reparations::all();
         // return view('sous_sites.create',compact('site'));
-        return view('reparations.edit',compact('country','client','owner','materiel','masterfile','devise','site','rate','sous_site','tauxes','type','size','etatdeConteneur'));
+        return view('reparations.edit',compact('country','reparation','client','owner','materiel','masterfile','devise','site','rate','sous_site','tauxes','type','size','etatdeConteneur'));
 
     }
 
@@ -158,25 +158,26 @@ class ReparationsController extends Controller
      */
     public function update(ReparationStoreRequest $request, Reparations $reparation)
     {
-        $reparation->update([
-            'numero_conteneur' => $request->numero_conteneur, 
-            'date_derniere_reparation' => $request->date_derniere_reparation,
-            'type_conteneur_id' => $request->type_conteneur_id,
-            'taille_conteneur_id' => $request->taille_conteneur_id,
-            'proprietaire_id' => $request->proprietaire_id,
-            'pays_name' => $request->pays_name,
-            'taux_name' => $request->taux_name,
-            'heure' => $request->heure,
-            'materiel_id' => $request->materiel_id,
-            'total' => $request->total,
-            'numero_recu' => $request->numero_recu,
-            'societe_reparation' => $request->societe_reparation,
-            'societe_location' => $request->societe_location,
-            'site_id' => $request->site_id,
-            'date_derniere_inspection' => $request->date_derniere_inspection,
-            'societe' => $request->societe,
-        ]);
-
+        // $reparation->update([
+        //     'numero_conteneur' => $request->numero_conteneur, 
+        //     'date_derniere_reparation' => $request->date_derniere_reparation,
+        //     'type_conteneur_id' => $request->type_conteneur_id,
+        //     'taille_conteneur_id' => $request->taille_conteneur_id,
+        //     'proprietaire_id' => $request->proprietaire_id,
+        //     'pays_name' => $request->pays_name,
+        //     'taux_name' => $request->taux_name,
+        //     'heure' => $request->heure,
+        //     'materiel_id' => $request->materiel_id,
+        //     'total' => $request->total,
+        //     'numero_recu' => $request->numero_recu,
+        //     'societe_reparation' => $request->societe_reparation,
+        //     'societe_location' => $request->societe_location,
+        //     'site_id' => $request->site_id,
+        //     'date_derniere_inspection' => $request->date_derniere_inspection,
+        //     'societe' => $request->societe,
+        // ]);
+        $reparation->update($request->validated());
+        
         return redirect()->route('reparations.index')->with('message','Data Updated Successfully');
     }
 

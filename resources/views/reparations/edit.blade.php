@@ -13,45 +13,49 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header">{{ __('Create Site') }}
+                    <div class="card-header">{{ __('Update') }}
                         <a href="{{route('reparations.index')}}" class="btn btn-success float-right">Back</a>
                     </div>
     
                     <div class="card-body">
-                        <form method="POST" action="{{ route('reparations.update',$reparation->id) }}">
+                        <form method="POST" action="{{ route('reparations.update', $reparation->id) }}">
                             @csrf
                             @method('put')
-                            <div class="form-group row">
-                                <label for="numero_conteneur" class="col-md-4 col-form-label text-md-right">{{ __('N° Immatriculation ') }}</label>
-                                <div class="col-md-6">
-                                  <select id ="numero_conteneur" name="numero_conteneur" class="form-control" aria-label="Default select example">
-                                    <option selected disabled> Choisir le numéro de Conteneur</option>
-                                    @foreach ($reparations as $reparation)
-                                    <option value="{{ $reparation->numero_conteneur }}" {{ $masterfile->numero_conteneur == $reparation->numero_conteneur ? 'selected' : ''}}>{{ $reparation->numero_conteneur }}</option>
-                                    @endforeach
-                                  </select>
-                                    @error('numero_conteneur')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                    @enderror
+
+                            <div class="row">
+                                <div class="col">
+                                    <div class="form-group row">
+                                        <label for="numero_conteneur" class="col-md-4 col-form-label text-md-right">{{ __('N° Immatriculation ') }}</label>
+                                        <div class="col-md-6">
+                                        <select id ="numero_conteneur" name="numero_conteneur" class="form-control" aria-label="Default select example">
+                                            <option selected disabled> Choisir le numéro de Conteneur</option>
+                                            @foreach ($masterfile as $masterfile)
+                                            <option value="{{ $masterfile->numero_conteneur }}" {{ $masterfile->numero_conteneur == $reparation->numero_conteneur ? 'selected' : ''}}>{{ $masterfile->numero_conteneur }}</option>
+                                            @endforeach
+                                        </select>
+                                            @error('numero_conteneur')
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                            @enderror
+                                        </div>
+                                    </div>
+                                <div class="col">
+                                <div class="col">
+                                    <div class="form-group row">
+                                        <label for="date_derniere_reparation" class="col-md-4 col-form-label text-md-right">{{ __('Date Dernière Réparation') }}</label>
+                                        <div class="col-md-6">
+                                            <input id="date_derniere_reparation" type="date" class="form-control @error('date_derniere_reparation') is-invalid @enderror" name="date_derniere_reparation" value="{{ old('date_derniere_reparation',$reparation->date_derniere_reparation) }}" >
+            
+                                            @error('date_derniere_reparation')
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                            @enderror
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-    
-                            <div class="form-group row">
-                                <label for="sous_site_name" class="col-md-4 col-form-label text-md-right">{{ __('Sous-site') }}</label>
-    
-                                <div class="col-md-6">
-                                    <input id="sous_site_name" type="sous_site_name" class="form-control @error('sous_site_name') is-invalid @enderror" name="sous_site_name" value="{{ old('sous_site_name',$sous_site->sous_site_name) }}" required>
-    
-                                    @error('sous_site_name')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                    @enderror
-                                </div>
-                            </div>
-    
                             {{-- <div class="form-group row">
                                 <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
     
