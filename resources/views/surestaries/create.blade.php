@@ -24,8 +24,7 @@
                                 <div class="col">
                                     <div class="form-group row">
                                         <label for="surestarie_date" class="col-md-4 col-form-label text-md-right">{{ __(' Date de la Surestarie ') }}</label>
-            
-                                        <div class="col-md-8">
+                                        <div class="col-md-4">
                                             <input id="surestarie_date" type="date" class="form-control @error('surestarie_date') is-invalid @enderror" name="surestarie_date" value="{{ old('surestarie_date') }}" required autocomplete="surestarie_date" autofocus>
             
                                             @error('surestarie_date')
@@ -37,6 +36,7 @@
                                     </div>
                                 </div>
                             </div>
+                            <br>
                             <div class="row">
                                 <div class="col">
                                     <div class="form-group row">
@@ -88,6 +88,94 @@
                                             @enderror
                                         </div>
                                       </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <div class="form-group row">
+                                        <label for="client_name" class="col-md-4 col-form-label text-md-right">{{ __('Client') }}</label>
+                                        <div class="col-md-4">
+                                            <select id ="client_name" name="client_name" class="form-control" aria-label="Default select example">
+                                              <option selected disabled> Choisir le Client </option>
+                                              @foreach ($client as $client)
+                                              <option value="{{ $client->client_name }}">{{ $client->client_name }}</option>
+                                              @endforeach
+                                            </select>
+                                              @error('client_name')
+                                                  <span class="invalid-feedback" role="alert">
+                                                      <strong>{{ $message }}</strong>
+                                                  </span>
+                                              @enderror
+                                          </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="row">
+                                <div class="col">
+                                    <div class="form-group row">
+                                        <label for="port_name" class="col-md-4 col-form-label text-md-right">{{ __('Port') }}</label>
+                                        <div class="col-md-8">
+                                          <select id ="port_name" name="port_name" class="form-control" aria-label="Default select example">
+                                            <option selected disabled> Choisir le Port </option>
+                                            @foreach ($port as $port)
+                                            <option value="{{ $port->port_name }}">{{ $port->port_name }}</option>
+                                            @endforeach
+                                          </select>
+                                            @error('port_name')
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                            @enderror
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="form-group row">
+                                        <label for="size_name" class="col-md-4 col-form-label text-md-right">{{ __('Taille') }}</label>
+                                        <div class="col-md-8">
+                                          <select id ="size_name" name="size_name" class="form-control" aria-label="Default select example">
+                                            <option selected disabled> Choisir la taille </option>
+                                            @foreach ($size as $size)
+                                            <option value="{{ $size->size_name }}">{{ $size->size_name }}</option>
+                                            @endforeach
+                                          </select>
+                                            @error('size_name')
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                            @enderror
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                     <div class="form-group row">
+                                        <label for="nombre" class="col-md-4 col-form-label text-md-right">{{ __('Nombre') }}</label>
+                                        <div class="col-md-6">
+                                            <input id="nombre" type="float" placeholder="0.0" class="form-control @error('nombre') is-invalid @enderror" name="nombre" value="{{ old('nombre') }}">
+                                            @error('nombre')
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                            @enderror
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="row">
+                                <div class="col">
+                                    <div class="form-group row">
+                                        <label for="restitution_date" class="col-md-4 col-form-label text-md-right">{{ __(' Date de la Restitution ') }}</label>
+                                        <div class="col-md-4">
+                                            <input id="restitution_date" type="date" class="form-control @error('restitution_date') is-invalid @enderror" name="restitution_date" value="{{ old('restitution_date') }}" required autocomplete="restitution_date" autofocus>
+                                            @error('restitution_date')
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                            @enderror
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
     

@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Clients;
 use App\Models\MasterFiles;
 use App\Models\Navires;
+use App\Models\Ports;
+use App\Models\Sizes;
 use App\Models\Surestaries;
 use Illuminate\Http\Request;
 
@@ -33,7 +36,10 @@ class SurestarieController extends Controller
     {
         $masterfile = MasterFiles::all();
         $navire = Navires::all();
-        return view ('surestaries.create', compact('masterfile','navire'));
+        $client = Clients::all();
+        $port = Ports::all();
+        $size = Sizes::all();
+        return view ('surestaries.create', compact('masterfile','navire','client','port','size'));
     }
 
     /**
