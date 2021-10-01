@@ -89,7 +89,7 @@
             <!-- Divider -->
 
             <li class="nav-item">
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="{{ route ('surestaries.index')}}">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Surestarie</span></a>
             </li>
@@ -113,7 +113,7 @@
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Mise à jour des Tables</h6>
                         <a class="collapse-item" href="{{ route('clients.index')}}">Client</a>
-                        <a class="collapse-item" href="#">Conteneur</a>
+                        {{-- <a class="collapse-item" href="#">Conteneur</a> --}}
                         <a class="collapse-item" href="{{ route('etatdeConteneurs.index')}}">Etat Conteneur</a>
                         <a class="collapse-item" href="{{ route('materiels.index')}}">Materiel</a>
                         <a class="collapse-item" href="{{ route('devises.index')}}">Monnaie</a>

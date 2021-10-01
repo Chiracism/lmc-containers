@@ -146,7 +146,6 @@ class ReparationsController extends Controller
         $reparation = Reparations::all();
         // return view('sous_sites.create',compact('site'));
         return view('reparations.edit',compact('country','reparation','client','owner','materiel','masterfile','devise','site','rate','sous_site','tauxes','type','size','etatdeConteneur'));
-
     }
 
     /**
@@ -177,7 +176,7 @@ class ReparationsController extends Controller
         //     'societe' => $request->societe,
         // ]);
         $reparation->update($request->validated());
-        
+
         return redirect()->route('reparations.index')->with('message','Data Updated Successfully');
     }
 
