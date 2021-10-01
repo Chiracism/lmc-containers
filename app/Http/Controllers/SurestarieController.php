@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\MasterFiles;
+use App\Models\Navires;
 use App\Models\Surestaries;
 use Illuminate\Http\Request;
 
@@ -29,7 +31,9 @@ class SurestarieController extends Controller
      */
     public function create()
     {
-        //
+        $masterfile = MasterFiles::all();
+        $navire = Navires::all();
+        return view ('surestaries.create', compact('masterfile','navire'));
     }
 
     /**
