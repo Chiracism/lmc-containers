@@ -178,8 +178,167 @@
                                     </div>
                                 </div>
                             </div>
-    
-                            
+                            <div class="row">
+                                <div class="col">
+                                    <div class="form-group row">
+                                        <label for="caution_versee" class="col-md-4 col-form-label text-md-right">{{ __(' Caution Versee ') }}</label>
+                                        <div class="col-md-8">
+                                            <input id="caution_versee" type="text" placeholder="0.0" class="form-control @error('caution_versee') is-invalid @enderror" name="caution_versee" value="{{ old('caution_versee') }}" required autocomplete="caution_versee" autofocus>
+                                            @error('caution_versee')
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                            @enderror
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="form-group row">
+                                        <label for="nls" class="col-md-4 col-form-label text-md-right">{{ __(' NLS ') }}</label>
+                                        <div class="col-md-8">
+                                            <input id="nls" type="text" class="form-control @error('nls') is-invalid @enderror" name="nls" value="{{ old('nls') }}" required autocomplete="nls" autofocus>
+                                            @error('nls')
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                            @enderror
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="form-group row">
+                                        <label for="ls_date" class="col-md-4 col-form-label text-md-right">{{ __(' LS Date ') }}</label>
+                                        <div class="col-md-8">
+                                            <input id="ls_date" type="date" class="form-control @error('ls_date') is-invalid @enderror" name="ls_date" value="{{ old('ls_date') }}" required autocomplete="ls_date" autofocus>
+                                            @error('ls_date')
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                            @enderror
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <div class="form-group row">
+                                        <label for="choix_type" class="col-md-4 col-form-label text-md-right">{{ __('Choix Type') }}</label>
+                                        <div class="col-md-4">
+                                          <select id ="choix_type" name="choix_type" class="form-control" aria-label="Default select example">
+                                            <option selected disabled> Choisir le Type </option>
+                                            {{-- @foreach ($navire as $navire)
+                                            <option value="{{ $navire->navire_name }}">{{ $navire->navire_name }}</option>
+                                            @endforeach --}}
+                                            <option value="Exportation">Exportation</option>
+                                            <option value="Importation">Importation</option>
+                                          </select>
+                                            @error('choix_type')
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                            @enderror
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <div class="form-group row">
+                                        <label for="detention" class="col-md-4 col-form-label text-md-right">{{ __(' Detention ') }}</label>
+                                        <div class="col-md-8">
+                                            <input id="detention" type="text" placeholder="0" class="form-control @error('detention') is-invalid @enderror" name="detention" value="{{ old('detention') }}" required autocomplete="detention" autofocus>
+                                            @error('detention')
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                            @enderror
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="form-group row">
+                                        <label for="surestarie_duree" class="col-md-4 col-form-label text-md-right">{{ __(' Surestarie ') }}</label>
+                                        <div class="col-md-8">
+                                            <input id="surestarie_duree" type="text" placeholder="0" class="form-control @error('surestarie_duree') is-invalid @enderror" name="surestarie_duree" value="{{ old('surestarie_duree') }}" required autocomplete="surestarie_duree" autofocus>
+                                            @error('surestarie_duree')
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                            @enderror
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="form-group row">
+                                        <label for="surestaries_duree" class="col-md-4 col-form-label text-md-right">{{ __(' Surestarie ') }}</label>
+                                        <div class="col-md-8">
+                                            <input id="surestaries_duree" type="text" placeholder="0" class="form-control @error('surestaries_duree') is-invalid @enderror" name="surestaries_duree" value="{{ old('surestaries_duree') }}" required autocomplete="surestaries_duree" autofocus>
+                                            @error('surestaries_duree')
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                            @enderror
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <div class="form-group row">
+                                        <label for="frais" class="col-md-4 col-form-label text-md-right">{{ __(' Frais ') }}</label>
+                                        <div class="col-md-8">
+                                            <input id="frais" type="text" placeholder="0.0" class="form-control @error('frais') is-invalid @enderror" name="frais" value="{{ old('frais') }}" required autocomplete="frais" autofocus>
+                                            @error('frais')
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                            @enderror
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="form-group row">
+                                        <label for="facturer" class="col-md-4 col-form-label text-md-right">{{ __(' Facturer ') }}</label>
+                                        <div class="col-md-8">
+                                            <input id="facturer" type="text" placeholder="0.0" class="form-control @error('facturer') is-invalid @enderror" name="facturer" value="{{ old('facturer') }}" required autocomplete="facturer" autofocus>
+                                            @error('facturer')
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                            @enderror
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="form-group row">
+                                        <label for="rembourser" class="col-md-4 col-form-label text-md-right">{{ __(' Rembourser ') }}</label>
+                                        <div class="col-md-8">
+                                            <input id="rembourser" type="text" placeholder="0.0" class="form-control @error('rembourser') is-invalid @enderror" name="surestaries_duree" value="{{ old('rembourser') }}" required autocomplete="rembourser" autofocus>
+                                            @error('rembourser')
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                            @enderror
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <div class="form-group row">
+                                        <label for="total" class="col-md-4 col-form-label text-md-right">{{ __(' Total ') }}</label>
+                                        <div class="col-md-4">
+                                            <input id="total" type="text" placeholder="0.0" class="form-control @error('total') is-invalid @enderror" name="total" value="{{ old('total') }}" required autocomplete="total" autofocus>
+                                            @error('total')
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                            @enderror
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
     
                             {{-- <div class="form-group row">
                                 <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
